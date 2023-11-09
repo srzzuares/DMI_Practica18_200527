@@ -1,0 +1,32 @@
+GET http://localhost:20052/player/getAll HTTP/1.1
+
+###
+
+GET http://localhost:20052/player/getOneById/1 HTTP/1.1
+
+###
+GET http://localhost:20052/player/getOneByEmail/srzzuares@gmail.com HTTP/1.1
+
+###
+POST http://localhost:20052/player/createOnePlayer HTTP/1.1
+# content-type: application/json
+
+# {
+#     "Persona_ID": 1,
+#     "Descripcion_Blog": "Accion",
+#     "Imagen": "",
+# }
+
+###
+POST http://localhost:20052/player/updatePlayer/1 HTTP/1.1
+# content-type: application/json
+
+# {
+#     "Persona_ID": 1,
+#     "Descripcion_Blog": "Accion",
+#     "Imagen": "",
+#     "Estatus": true
+# }
+
+###
+GET http://localhost:20052/player/delPlayer/1 HTTP/1.1
