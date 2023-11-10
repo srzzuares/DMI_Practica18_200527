@@ -1,8 +1,16 @@
+import Player from "../models/playerModel.js";
 const obj = {};
 
-obj.getAllPlayers = (req,res)=>{
-    res.status(200).json({Hola: "Desde Get All Player"});
-    console.log("Desde Get All Player")
+
+obj.getAllPlayers = async (req,res)=>{
+    try {
+        const getAll = await Player.findAll()
+        console.log(getAll)
+        return res.status(200).json({ Data: getAll });
+    } catch (error) {
+        console.log('Hubo un Error', error);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
 }
 
 obj.findOneById = (req,res)=>{
