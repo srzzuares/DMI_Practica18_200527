@@ -97,6 +97,8 @@ npm i nodemon dotenv bcrypt -D
  
 </p>
 
+---
+
 | NO. Informes      | Descripción                                                                                                                            |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | **Actividad 2**   | Se integro la conexión de base de datos y se creó la ruta de obtener todos los datos de la tabla.                                      |
