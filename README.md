@@ -30,7 +30,7 @@
 | **controllers**  | Son archivos que son responsables de manejar las solicitudes del usuario y devolver las respuestas apropiadas..   |
 | **models**       | Los modelos se utilizan a menudo en aplicaciones web para representar datos de usuarios, productos , entre otras. |
 | **routes**       | Es una carpeta que contiene los archivos JavaScript que definen las rutas de la aplicación.                       |
-| **config**       | Es una carpeta que contiene los archivos de configuracion de la aplicación.                                       |
+| **config**       | Es una carpeta que contiene los archivos de configuracion de la aplicación, por ejemplo base de datos.            |
 | **lib**          | Librerias                                                                                                         |
 | **RestClient**   | Es una carpeta que contiene los archivos http de las rutas que se crearon en el desarrollo del backend.           |
 
@@ -53,42 +53,63 @@
 | ------------------- | ------------------------------------------------------------------------------------------------- |
 | **playerRoutes.js** | Este archivo es para crear rutas para distintas peticiones o solicitudes que requiere el usuario. |
 
-## Paquetes para NodeJs del ProyectoX
+## Paquetes NodeJs del Proyecto Api_Game
 
-Código ha utilizar durante el proyecto:
+Código utilizado en el proyecto:
 
 ```bash
-# Esto es para dependencias del proyectox
-npm i express cors
+# Esto es para dependencias del proyecto
+npm i express cors mysql2 sequelize
 ```
 
 ```bash
-# Esto es para dependenciasde desarrollo del proyectox
+# Esto es para dependenciasde desarrollo del proyecto
 npm i nodemon dotenv bcrypt -D
 ```
 
-## Paquetes para NodeJs del ProyectoX
+## Actividades del Proyecto Api_Game
 
-| NO. Informes    | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Actividad 1** | Para esta API Rest del videojuego, se inicio creando la estructura de una arquitectura de software de MVC (modelo vista controlador), instalando las diferentes dependencias para el desarrollo de este proyecto como NodeJs, Express, Nodemon, Dotenv, Cors. Se creó archivos como el **server.js** para poder importar middlewares, las rutas de solicutdes y correr el entorno de ejecución, **playerRoutes.js** que contiene las rutas para poder navegar en la web y **playerController.js** para crear las funcionalidades para el CRUD y un archivo **.env** que guardara las variables que serán secretas para la base de datos u otra cosa. |
+| NO. Informes      | Descripción                                                                                                                          |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| **Actividad 1**   | Para esta API Rest del videojuego, se inicio creando la estructura de una arquitectura de software de MVC (modelo vista controlador) |
+| **Actividad 1.1** | Se instalo dependencias para el desarrollo de este proyecto como NodeJs, Express, Nodemon, Dotenv, Cors.                             |
+| **Actividad 1.2** | Se creó un archivo como el **server.js** para poder importar middlewares, las rutas de solicutdes y correr el entorno de ejecución.  |
+| **Actividad 1.3** | Se creó un archivo como el **playerRoutes.js** que contiene las rutas para poder navegar en la web.                                  |
+| **Actividad 1.4** | Se creó un archivo como el **playerController.js** para crear las funcionalidades para el CRUD y un archivo                          |
+| **Actividad 1.5** | Se creó un archivo como el **.env** que guardara las variables que serán secretas para la base de datos u otra cosa.                 |
 
 ## Capturas de Pantalla Actividad 1
 
 <p align="center">
-  <img src="./Pruebas/p-1.png" width="2000" alt="Get All Data">
+  <img src="./Pruebas/p-1.png" width="1500" alt="Get All Data">
   
-  <img src="./Pruebas/p-2.png" width="2000" alt="Get One By ID">
+  <img src="./Pruebas/p-2.png" width="1500" alt="Get One By ID">
   
-  <img src="./Pruebas/p-3.png" width="2000" alt="Get One By Email">
+  <img src="./Pruebas/p-3.png" width="1500" alt="Get One By Email">
   
-  <img src="./Pruebas/p-4.png" width="2000" alt="Create Player">
+  <img src="./Pruebas/p-4.png" width="1500" alt="Create Player">
   
-  <img src="./Pruebas/p-5.png" width="2000" alt="Put Player">
+  <img src="./Pruebas/p-5.png" width="1500" alt="Put Player">
   
-  <img src="./Pruebas/p-6.png" width="2000" alt="Delete Player">
+  <img src="./Pruebas/p-6.png" width="1500" alt="Delete Player">
   
-  <img src="./Pruebas/p-7.png" width="2000" alt="Patch Player">
+  <img src="./Pruebas/p-7.png" width="1500" alt="Patch Player">
+ 
+</p>
+
+| NO. Informes      | Descripción                                                                                                                            |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **Actividad 2**   | Se integro la conexión de base de datos y se creó la ruta de obtener todos los datos de la tabla.                                      |
+| **Actividad 2.1** | Dentro de la carpeta config se creo el archivo **db.js** y se implemento la conexión de la base de datos.                              |
+| **Actividad 2.2** | Se creó el archivo **playerModel.js** en la carpeta Models y se crea el modelo de la tabla tbb_players                                 |
+| **Actividad 2.3** | Se importan rutas de los archivos **db.js y playerModel.js** al **server.js** agregando un try catch para la conexion de base de datos |
+| **Actividad 2.4** | Dentro del archivo **playerController.js** se integro código para la obtención de toda la data en la tabla tbb_players                 |
+
+## Capturas de Pantalla Actividad 2
+
+<p align="center">
+
+  <img src="./Pruebas/p-8.png" width="2000" alt="Get All Data">
  
 </p>
 
