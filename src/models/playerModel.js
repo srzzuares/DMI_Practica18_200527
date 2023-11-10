@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import dbsequelize from "../config/db.js"
 
-const Player = dbsequelize.define('tb_Players', {
+const Player = dbsequelize.define('tbb_Players', {
     name: {
       type: DataTypes.STRING(100),
       allowNull: false
@@ -17,7 +17,8 @@ const Player = dbsequelize.define('tb_Players', {
     },
     nickname: {
       type: DataTypes.STRING(100),
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     bithday: {
       type: DataTypes.DATE
