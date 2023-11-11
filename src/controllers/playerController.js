@@ -1,4 +1,5 @@
 import Player from "../models/playerModel.js";
+const date = new Date();
 const obj = {};
 
 
@@ -9,41 +10,111 @@ obj.getAllPlayers = async (req,res)=>{
         return res.status(200).json({ Data: getAll });
     } catch (error) {
         console.log('Hubo un Error', error);
-        return res.status(500).json({ message: 'Internal server error' });
+        return res.status(500).json({ message: 'Internal server error in Get All' });
     }
 }
 
-obj.findOneById = (req,res)=>{
+obj.findOneById = async (req,res)=>{
     const id = req.params.id;
-    res.status(200).json({Hola: "Desde find one by ID : --- " + id});
-    console.log("Desde find one by ID : --- " + id)
+    try {
+        const getOneById = await Player.findOne({where: {idPlayer: id}});
+        if(getOneById === null) return res.status(500).json({ Data: "Id no encontrado o incorrecto" });
+        else return res.status(200).json({ Data: getOneById });
+    } catch (error) {
+        console.log('Hubo un Error', error);
+        return res.status(500).json({ message: 'Internal server error in find Id' });
+    }
 }
 
-obj.findOneByEmail = (req,res)=>{
-    const email = req.params.Email;
-    res.status(200).json({Hola: "Desde find one by Email : --- " + email});
-    console.log("Desde find one by Email : --- " + email)
+obj.findOneByEmail = async (req,res)=>{
+    const Email = req.params.idEmail;
+    try {
+        const getOneByEmail = await Player.findOne({where: {email: Email}});
+        if (getOneByEmail === null) return res.status(500).json({ Data: "Id no encontrado o incorrecto" });
+        else return res.status(200).json({ Data: getOneByEmail });
+    } catch (error) {
+        console.log('Hubo un Error', error);
+        return res.status(500).json({ message: 'Internal server error in find Email' });
+    }
 }
 
-obj.createOnePlayer = (req,res)=>{
-    res.status(200).json({Hola: "Desde create one player"});
-    console.log("Desde create one player")
+obj.createOnePlayer = async (req,res)=>{
+    const {name,email,password,nickname,bithday,portrait_img} = req.body;
+    try {
+        const Create = await Player.create({
+            name,
+            email,
+            password,
+            nickname,
+            bithday,
+            portrait_img
+        });
+        return res.status(200).json({ Data: "Player creado exitosamente con id : " + Create.idPlayer});
+    } catch (error) {
+        console.log('Hubo un Error', error);
+        return res.status(500).json({ message: 'Internal server error in Created' });
+    }
 }
 
-obj.putPlayer = (req,res)=>{
-    const id = req.params.id;
-    res.status(200).json({Hola: "Desde put PLAYER : --- " + id});
-    console.log("Desde put PLAYER : --- " + id)
+obj.putPlayer = async (req,res)=>{
+    const [id, updatedAt] = [req.params.id, date];
+    const findPlayer = await Player.findOne({where:{idPlayer: id}})
+    const {name,email,password,nickname,bithday,portrait_img,Estatus} = req.body;
+    try {
+        if(findPlayer === null) return res.status(500).json({ Data: "Id no encontrado o incorrecto" });
+        else {
+            const Update = await findPlayer.update({
+                name,
+                email,
+                password,
+                nickname,
+                bithday,
+                portrait_img,
+                Estatus,
+                updatedAt
+            });
+            return res.status(200).json({ Data: "Player actualizado exitosamente con id : " + Update.idPlayer});
+        }
+    } catch (error) {
+        console.log('Hubo un Error', error);
+        return res.status(500).json({ message: 'Internal server error in Update' });
+    }
 }
 
-obj.delPlayer = (req,res)=>{
+obj.delPlayer = async (req,res)=>{
     const id = req.params.id;
-    res.status(200).json({Hola: "Desde delete Player : --- " + id});
-    console.log("Desde delete Player : --- " + id)
+    try {
+        const getOneByIdDel = await Player.findOne({where: {idPlayer: id}});
+        if(getOneByIdDel === null) return res.status(500).json({ Data: "Id no encontrado o incorrecto" });
+        else {
+            const delPlayer = getOneByIdDel.destroy();
+            return res.status(200).json({ Data: "Se elimino el Player con id : " + getOneByIdDel.idPlayer });
+        }
+    } catch (error) {
+        console.log('Hubo un Error', error);
+        return res.status(500).json({ message: 'Internal server error in delete' });
+    }
 }
-obj.patchPlayer = (req,res)=>{
+
+obj.patchPlayer = async (req,res)=>{
     const id = req.params.id;
-    res.status(200).json({Hola: "Patch Player? : --- " + id});
-    console.log("Patch Player? : --- " + id)
+    try {
+        const getOneByIdDelEst = await Player.findOne({where: {idPlayer: id}});
+        if(getOneByIdDelEst === null) return res.status(500).json({ Data: "Id no encontrado o incorrecto" });
+        else {
+            if (getOneByIdDelEst.Estatus === true) {
+                getOneByIdDelEst.Estatus=false
+                await getOneByIdDelEst.save();
+                return res.status(200).json({ Data: "Se desactivo el Player con id : " + getOneByIdDelEst.idPlayer + " " + getOneByIdDelEst.Estatus });
+            }else {
+                getOneByIdDelEst.Estatus=true
+                await getOneByIdDelEst.save();
+                return res.status(200).json({ Data: "Se activo el Player con id : " + getOneByIdDelEst.idPlayer + " " + getOneByIdDelEst.Estatus });
+            }
+        }
+    } catch (error) {
+        console.log('Hubo un Error', error);
+        return res.status(500).json({ message: 'Internal server error in delete Estatus' });
+    }
 }
 export default obj;

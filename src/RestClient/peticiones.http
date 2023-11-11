@@ -2,31 +2,41 @@ GET http://localhost:20052/player/getAll HTTP/1.1
 
 ###
 
-GET http://localhost:20052/player/getOneById/1 HTTP/1.1
+GET http://localhost:20052/player/getOneById/2 HTTP/1.1
 
+#enrique@gmail.com
 ###
-GET http://localhost:20052/player/getOneByEmail/srzzuares@gmail.com HTTP/1.1
+GET http://localhost:20052/player/getOneByEmail/enrique@gmail.com HTTP/1.1
 
 ###
 POST http://localhost:20052/player/createOnePlayer HTTP/1.1
-# content-type: application/json
+content-type: application/json
 
-# {
-#     "Persona_ID": 1,
-#     "Descripcion_Blog": "Accion",
-#     "Imagen": "",
-# }
-
-###
-POST http://localhost:20052/player/updatePlayer/1 HTTP/1.1
-# content-type: application/json
-
-# {
-#     "Persona_ID": 1,
-#     "Descripcion_Blog": "Accion",
-#     "Imagen": "",
-#     "Estatus": true
-# }
+{
+    "name": "Skarlet",
+    "email": "Skarlett@gmail.com",
+    "password": "123asdasd",
+    "nickname": "Skarlettt",
+    "bithday": "2004-07-22T00:00:00.000Z",
+    "portrait_img": "aasdaq1313asdasdasd"
+}
 
 ###
-GET http://localhost:20052/player/delPlayer/1 HTTP/1.1
+PUT http://localhost:20052/player/updatePlayer/95 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Skarlet",
+    "email": "Shjktjjjt@gmail.com",
+    "password": "123asdasd",
+    "nickname": "frlehhttt",
+    "bithday": "2004-07-22T00:00:00.000Z",
+    "portrait_img": "aasdaq1313asdasdasd",
+    "Estatus": false
+}
+
+###
+DELETE http://localhost:20052/player/delPlayer/1 HTTP/1.1
+
+###
+PATCH http://localhost:20052/player/patchPlayer/5 HTTP/1.1
