@@ -115,4 +115,58 @@ npm i nodemon dotenv bcrypt -D
  
 </p>
 
+---
+
+| NO. Informes      | Descripción                                                                                                                                |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Actividad 3**   | Se creo Api completa de todas las rutas con funcionalidad de la tabla **tbb_players**                                                      |
+| **Actividad 3.1** | Se integro el código para la funcionalidad de buscar por medio de **id** de la tabla **tbb_players**                                       |
+| **Actividad 3.2** | Se integro el código para la funcionalidad de buscar por medio de **Email** de la tabla **tbb_players**                                    |
+| **Actividad 3.3** | Se integro el código para la funcionalidad de crear datos de la tabla **tbb_players**                                                      |
+| **Actividad 3.4** | Se integro el código para la funcionalidad de actualizar datos de la tabla **tbb_players**                                                 |
+| **Actividad 3.5** | Se integro el código para la funcionalidad de eliminar permanente los datos de la tabla **tbb_players** por medio de **IdPlayers**         |
+| **Actividad 3.6** | Se integro el código para la funcionalidad de actualizar un elemento con **PATCH**, de la tabla **tbb_players** por medio de **IdPlayers** |
+
+## Capturas de Pantalla Actividad 3
+
+<p align="center">
+
+  <img src="./Pruebas/p-9.png" width="2000" alt="Get One By Id Data">
+ 
+  <img src="./Pruebas/p-10.png" width="2000" alt="Get One By Email Data">
+ 
+  <img src="./Pruebas/p-12.png" width="2000" alt="Test of Get One By Id and Email Data">
+ 
+ ---
+
+  <img src="./Pruebas/p-11.png" width="2000" alt="Create Data">
+ 
+  <img src="./Pruebas/p-13.png" width="2000" alt="Test of created Data">
+ 
+ ---
+
+  <img src="./Pruebas/p-14.png" width="2000" alt="Update Data">
+ 
+  <img src="./Pruebas/p-15.png" width="2000" alt="Test of Update Data">
+ 
+ ---
+
+  <img src="./Pruebas/p-16.png" width="2000" alt="Delete Data">
+ 
+  <img src="./Pruebas/p-17.png" width="2000" alt="Test of Delete Data">
+ 
+ ---
+
+  <img src="./Pruebas/p-18.png" width="2000" alt="Update PATCH Data">
+ 
+  <img src="./Pruebas/p-19.png" width="2000" alt="Test Patch Data 1">
+ 
+  <img src="./Pruebas/p-20.png" width="2000" alt="Test Patch Data 1">
+ 
+  <img src="./Pruebas/p-21.png" width="2000" alt="Test Patch Data 1">
+ 
+ ---
+
+</p>
+
 </div>
