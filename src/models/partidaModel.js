@@ -44,6 +44,7 @@ const Partida = dbsequelize.define('tbb_Game', {
     },
     previos_game_leve_ID: {
       type: DataTypes.INTEGER,
+      defaultValue: null,
       allowNull: true,
       
     },
