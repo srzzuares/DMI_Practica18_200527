@@ -7,7 +7,7 @@ obj.getAllPlayers = async (req,res)=>{
     try {
         const getAll = await Player.findAll()
         if(!getAll) return res.status(200).json({ Data: "No se encuentra ningún registro" });
-        else return res.status.json({ Data: getAll })
+        else return res.status(200).json({ Data: getAll })
     } catch (error) {
         console.log('Hubo un Error', error);
         return res.status(500).json({ message: 'Internal server error in Get All' });
@@ -57,7 +57,7 @@ obj.createOnePlayer = async (req,res)=>{
 }
 
 obj.putPlayer = async (req,res)=>{
-    const [id, updatedAt] = [req.params.id, date];
+    const [id, updatedAt] = [req.params.id, date.toLocaleString()];
     const findPlayer = await Player.findOne({where:{idPlayer: id}})
     const {name,email,password,nickname,bithday,portrait_img,Estatus} = req.body;
     try {
@@ -97,17 +97,19 @@ obj.delPlayer = async (req,res)=>{
 }
 
 obj.patchPlayer = async (req,res)=>{
-    const id = req.params.id;
+    const [id, updatedAt] = [req.params.id, date.toLocaleString()];
     try {
         const getOneByIdDelEst = await Player.findOne({where: {idPlayer: id}});
         if(getOneByIdDelEst === null) return res.status(500).json({ Data: "Id no encontrado o incorrecto" });
         else {
-            if (getOneByIdDelEst.Estatus === true) {
+            if (getOneByIdDelEst.Estatus) {
                 getOneByIdDelEst.Estatus=false
+                getOneByIdDelEst.updatedAt=updatedAt
                 await getOneByIdDelEst.save();
                 return res.status(200).json({ Data: "Se desactivo el Player con id : " + getOneByIdDelEst.idPlayer + " " + getOneByIdDelEst.Estatus });
             }else {
                 getOneByIdDelEst.Estatus=true
+                getOneByIdDelEst.updatedAt=updatedAt
                 await getOneByIdDelEst.save();
                 return res.status(200).json({ Data: "Se activo el Player con id : " + getOneByIdDelEst.idPlayer + " " + getOneByIdDelEst.Estatus });
             }
