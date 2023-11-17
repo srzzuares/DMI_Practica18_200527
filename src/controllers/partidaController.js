@@ -1,20 +1,20 @@
 import Partida from "../models/partidaModel.js";
 const date = new Date();
-const obj = {};
+const obj2 = {};
 
 
-obj.getAllPartidas = async (req,res)=>{
+obj2.getAllPartidas = async (req,res)=>{
     try {
         const getAll = await Partida.findAll();
         if(!getAll) return res.status(200).json({ Data: "No se encuentra ningún registro" });
-        else return res.status.json({ Data: getAll })
+        else return res.status(200).json({ Data: getAll })
     } catch (error) {
         console.log('Hubo un Error', error);
         return res.status(500).json({ message: 'Internal server error in Get All' });
     }
 }
 
-obj.findOneById = async (req,res)=>{
+obj2.findOneById = async (req,res)=>{
     const id = req.params.id;
     try {
         const getOneById = await Partida.findOne({where: {idPartida: id}});
@@ -26,10 +26,11 @@ obj.findOneById = async (req,res)=>{
     }
 }
 
-obj.findOneByIdPlayer = async (req,res)=>{
+obj2.findOneByIdPlayer = async (req,res)=>{
     const idPlayer = req.params.idPlayer;
     try {
-        const getOneByidPlayer = await Partida.findOne({where: {idPlayer: idPlayer}});
+        const getOneByidPlayer = await Partida.findOne({where: {idPlayer}});
+        console.log(getOneByidPlayer)
         if (getOneByidPlayer === null) return res.status(500).json({ Data: "Id no encontrado o incorrecto" });
         else return res.status(200).json({ Data: getOneByidPlayer });
     } catch (error) {
@@ -38,7 +39,7 @@ obj.findOneByIdPlayer = async (req,res)=>{
     }
 }
 
-obj.createOnePartida = async (req,res)=>{
+obj2.createOnePartida = async (req,res)=>{
     const {idPlayer,level,startGame,endGame,score_st,score_end,previos_game_leve_ID} = req.body;
     try {
         const Create = await Partida.create({
@@ -57,8 +58,8 @@ obj.createOnePartida = async (req,res)=>{
     }
 }
 
-obj.putPartida = async (req,res)=>{
-    const [id, updatedAt] = [req.params.id, date];
+obj2.putPartida = async (req,res)=>{
+    const [id, updatedAt] = [req.params.id, date.toLocaleString()];
     const findPartida = await Partida.findOne({where:{idPartida: id}})
     const {idPlayer,level,startGame,endGame,score_st,score_end,previos_game_leve_ID,Estatus} = req.body;
     try {
@@ -83,7 +84,7 @@ obj.putPartida = async (req,res)=>{
     }
 }
 
-obj.delPartida = async (req,res)=>{
+obj2.delPartida = async (req,res)=>{
     const id = req.params.id;
     try {
         const getOneByIdDel = await Partida.findOne({where: {idPartida: id}});
@@ -98,18 +99,20 @@ obj.delPartida = async (req,res)=>{
     }
 }
 
-obj.patchPartida = async (req,res)=>{
-    const id = req.params.id;
+obj2.patchPartida = async (req,res)=>{
+    const [id, updatedAt] = [req.params.id, date.toLocaleString()];
     try {
         const getOneByIdDelEst = await Partida.findOne({where: {idPartida: id}});
         if(getOneByIdDelEst === null) return res.status(500).json({ Data: "Id no encontrado o incorrecto" });
         else {
             if (getOneByIdDelEst.Estatus) {
                 getOneByIdDelEst.Estatus=false
+                getOneByIdDelEst.updatedAt=updatedAt
                 await getOneByIdDelEst.save();
                 return res.status(200).json({ Data: "Se desactivo el Partida con id : " + getOneByIdDelEst.idPartida + " " + getOneByIdDelEst.Estatus });
             }else {
                 getOneByIdDelEst.Estatus=true
+                getOneByIdDelEst.updatedAt=updatedAt
                 await getOneByIdDelEst.save();
                 return res.status(200).json({ Data: "Se activo el Partida con id : " + getOneByIdDelEst.idPartida + " " + getOneByIdDelEst.Estatus });
             }
@@ -119,4 +122,4 @@ obj.patchPartida = async (req,res)=>{
         return res.status(500).json({ message: 'Internal server error in delete Estatus' });
     }
 }
-export default obj;
+export default obj2;

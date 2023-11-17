@@ -5,6 +5,7 @@ import bdParser from "body-parser";
 import Player from "./models/playerModel.js";
 import Partida from "./models/partidaModel.js";
 import ROUTER from "./routes/playerRoutes.js";
+import ruta from "./routes/partidaRoutes.js";
 
 const api = ex();
 const port = process.env.PORT || 44446;
@@ -24,4 +25,5 @@ try {
 api.use(ex.json())
 api.use(bdParser.urlencoded({extended:false}))
 api.use("/player",ROUTER)
+api.use("/partida",ruta)
 api.get('/' , (req,res) => { res.json({Hola:"Hola"})})

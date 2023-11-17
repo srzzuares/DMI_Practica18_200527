@@ -40,3 +40,56 @@ DELETE http://localhost:20052/player/delPlayer/1 HTTP/1.1
 
 ###
 PATCH http://localhost:20052/player/patchPlayer/5 HTTP/1.1
+
+
+
+
+
+
+
+###
+
+GET http://localhost:20052/partida/getAll HTTP/1.1
+
+###
+
+GET http://localhost:20052/partida/getOneById/2 HTTP/1.1
+
+#enrique@gmail.com
+###
+GET http://localhost:20052/partida/getOneByIdPlayer/2 HTTP/1.1
+
+###
+POST http://localhost:20052/partida/createOnePartida HTTP/1.1
+content-type: application/json
+
+{
+    "idPlayer": "1",
+    "level": "1",
+    "startGame": "00:00:00",
+    "endGame": "00:02:00",
+    "score_st": 0.0,
+    "score_end": 12.0,
+    "previos_game_leve_ID": ""
+}
+
+###
+PUT http://localhost:20052/partida/updatePartida/95 HTTP/1.1
+content-type: application/json
+
+{
+    "idPlayer": "1",
+    "level": "1",
+    "startGame": "00:00:00",
+    "endGame": "00:02:00",
+    "score_st": 0.0,
+    "score_end": 12.0,
+    "previos_game_leve_ID": "",
+    "Estatus": false
+}
+
+###
+DELETE http://localhost:20052/partida/delPartida/1 HTTP/1.1
+
+###
+PATCH http://localhost:20052/partida/patchPartida/5 HTTP/1.1
