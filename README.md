@@ -169,4 +169,44 @@ npm i nodemon dotenv bcrypt -D
 
 </p>
 
+---
+
+| NO. Informes      | Descripción                                                                                                                                |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Actividad 4**   | Se creo Api completa de todas las rutas con funcionalidad de la tabla **tbb_Partida**                                                      |
+| **Actividad 4.1** | Se integro el código para la funcionalidad de buscar por medio de **idPartida** de la tabla **tbb_Partida**                                       |
+| **Actividad 4.2** | Se integro el código para la funcionalidad de buscar por medio de **IdPlayer** de la tabla **tbb_Partida**                                    |
+| **Actividad 4.3** | Se integro el código para la funcionalidad de crear datos de la tabla **tbb_Partida**                                                      |
+| **Actividad 4.4** | Se integro el código para la funcionalidad de actualizar datos de la tabla **tbb_Partida**                                                 |
+| **Actividad 4.5** | Se integro el código para la funcionalidad de eliminar permanente los datos de la tabla **tbb_Partida** por medio de **IdPartida**         |
+| **Actividad 4.6** | Se integro el código para la funcionalidad de actualizar un elemento con **PATCH**, de la tabla **tbb_players** por medio de **IdPartida** |
+
+## Capturas de Pantalla Actividad 3
+
+<p align="center">
+
+  <img src="./Pruebas/p-22.png" width="2000" alt="Get All">
+ 
+  <img src="./Pruebas/p-23.png" width="2000" alt="Get One By IdPartida">
+
+  <img src="./Pruebas/p-24.png" width="2000" alt="Get One By IdPlayer Data">
+
+ ---
+
+  <img src="./Pruebas/p-25.png" width="2000" alt="Create Data">
+
+ ---
+
+  <img src="./Pruebas/p-26.png" width="2000" alt="Update Data">
+  
+ ---
+
+  <img src="./Pruebas/p-27.png" width="2000" alt="Delete Data">
+ 
+  <img src="./Pruebas/p-28.png" width="2000" alt="Update PATCH Data">
+ 
+
+</p>
+
+
 </div>
