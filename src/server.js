@@ -18,7 +18,7 @@ try {
     dbsequelize.authenticate()
     console.log("STATUS => Ha Sido Exitosa")
     console.log("STATUS => Sincronizando objetos existentes")
-    dbsequelize.sync({force:true})
+    dbsequelize.sync(/* {force:true} */)
     console.log("STATUS => Conexión establecida correctamente para realizar operaciones")
 } catch (error) {
     console.error("La base de datos no se encuentra disponible \n " + error)
