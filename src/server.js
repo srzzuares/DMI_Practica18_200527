@@ -4,6 +4,7 @@ import dbsequelize from "./config/db.js";
 import bdParser from "body-parser";
 import Player from "./models/playerModel.js";
 import Partida from "./models/partidaModel.js";
+import Relacion from "./models/Relaciones.js";
 import ROUTER from "./routes/playerRoutes.js";
 import ruta from "./routes/partidaRoutes.js";
 

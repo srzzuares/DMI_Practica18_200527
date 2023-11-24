@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
 import dbsequelize from "../config/db.js"
-import Player from "./playerModel.js";
 
 const Partida = dbsequelize.define('tbb_Game', {
     idPartida: {
@@ -8,15 +7,6 @@ const Partida = dbsequelize.define('tbb_Game', {
         autoIncrement: true,
         primaryKey: true
       },
-    idPlayer: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 1,
-      references: {
-        model: Player,
-        key: 'idPlayer'
-      }
-    },
     level: {
       type: DataTypes.INTEGER,
       defaultValue: 1,
@@ -63,6 +53,5 @@ const Partida = dbsequelize.define('tbb_Game', {
     }
   });
 
-  Partida.belongsTo(Partida, {foreignKey: 'previos_game_leve_ID'});
 
 export default Partida;
