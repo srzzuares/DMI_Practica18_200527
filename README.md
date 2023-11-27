@@ -181,6 +181,9 @@ npm i nodemon dotenv bcrypt -D
 | **Actividad 4.5** | Se integro el código para la funcionalidad de eliminar permanente los datos de la tabla **tbb_Partida** por medio de **IdPartida**         |
 | **Actividad 4.6** | Se integro el código para la funcionalidad de actualizar un elemento con **PATCH**, de la tabla **tbb_players** por medio de **IdPartida** |
 
+Para la llave foranea de idPlayer de la tabla tbb_Partida se relaciona con la tabla tbb_Player dentro del archivo **Relaciones.js** que sirve para poder relacioar llaves foraneas.
+
+
 ## Capturas de Pantalla Actividad 4
 
 <p align="center">
